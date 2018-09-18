@@ -17,4 +17,13 @@ public func routes(_ router: Router) throws {
             return req.makeResponse(http: response.http)
         }
     }
+
+    router.get("google-map2") { req -> Future<Response> in
+        return try req.client().get("https://www.google.de").map { response in
+
+            var res = req.makeResponse()
+            try res.content.encode("Hello Google!", as: .plainText)
+            return res
+        }
+    }
 }
