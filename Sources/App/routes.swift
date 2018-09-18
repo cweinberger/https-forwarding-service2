@@ -34,14 +34,14 @@ public func routes(_ router: Router) throws {
             res.http.status = response.http.status
             res.http.body = response.http.body
 
-            debugPrint("original request headers:")
-            _ = req.http.headers.map{ debugPrint($0) }
-            
-            debugPrint("google response headers:")
-            _ = response.http.headers.map{ debugPrint($0) }
-            
-            debugPrint("new response headers:")
-            _ = res.http.headers.map { debugPrint($0) }
+            print("=== original request headers ===")
+            _ = req.http.headers.map{ print($0) }
+
+            print("=== google response headers ===")
+            _ = response.http.headers.map{ print($0) }
+
+            print("=== new response headers ===")
+            _ = res.http.headers.map { print($0) }
 
             return res
         }
