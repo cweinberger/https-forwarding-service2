@@ -33,6 +33,16 @@ public func routes(_ router: Router) throws {
             let res = req.makeResponse()
             res.http.status = response.http.status
             res.http.body = response.http.body
+
+            debugPrint("original request headers:")
+            _ = req.http.headers.map{ debugPrint($0) }
+            
+            debugPrint("google response headers:")
+            _ = response.http.headers.map{ debugPrint($0) }
+            
+            debugPrint("new response headers:")
+            _ = res.http.headers.map { debugPrint($0) }
+
             return res
         }
     }
